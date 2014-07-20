@@ -2,11 +2,7 @@ require 'rails_helper'
 
 describe "show a movie listing" do
   it "should contain movie details" do
-    movie = Movie.create(title: 'Lord of rings',
-                         rating: 'PG-13',
-                         total_gross: 12312312321.00,
-                         released_on: 15.days.ago,
-                         description: 'Fly you fools')
+    movie = Movie.create(movie_attributes(total_gross: 12312312321.00))
     visit movie_url(movie)
 
     expect(page).to have_text(movie.title)
